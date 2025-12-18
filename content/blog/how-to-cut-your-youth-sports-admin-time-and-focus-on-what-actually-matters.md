@@ -4,10 +4,6 @@ date: 2025-12-18
 excerpt: "Drowning in club operations work? Learn the 5 systems modern volleyball, basketball, and soccer club directors use to automate scheduling, registration, and communication, and get their time back."
 ---
 
-# How to Cut Your Youth Sports Admin Time and Focus on What Actually Matters
-
-**Meta Description:** Drowning in club operations work? Learn the 5 systems modern volleyball, basketball, and soccer club directors use to automate scheduling, registration, and communication, and get their time back.
-
 ---
 
 If you've ever found yourself rebuilding your practice schedule at 10pm because a gym cancelled, or manually cross-referencing payment records against your roster spreadsheet, you're not alone.
