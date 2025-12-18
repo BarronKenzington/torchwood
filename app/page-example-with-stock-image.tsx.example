@@ -1,0 +1,68 @@
+/**
+ * EXAMPLE: How to use stock images in your pages
+ * 
+ * This is an example file showing how to integrate Unsplash stock images.
+ * Copy the relevant parts to your actual pages.
+ */
+
+'use client'
+
+import { useEffect, useState } from 'react'
+import StockImage from '@/components/StockImage'
+
+export default function ExampleWithStockImage() {
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
+
+  // Fetch a random sports image on component mount
+  useEffect(() => {
+    fetch('/api/unsplash/random?query=youth sports')
+      .then(res => res.json())
+      .then(data => setImageUrl(data.urls.regular))
+      .catch(err => console.error('Failed to load image:', err))
+  }, [])
+
+  return (
+    <section className="relative py-20">
+      {imageUrl ? (
+        <div className="absolute inset-0 overflow-hidden opacity-20">
+          <StockImage
+            src={imageUrl}
+            alt="Youth sports background"
+            fill
+            objectFit="cover"
+          />
+        </div>
+      ) : (
+        <div className="absolute inset-0 bg-torchwood-dark-teal opacity-20" />
+      )}
+      
+      <div className="relative z-10 container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-white mb-4">
+          Your Content Here
+        </h2>
+        {/* Rest of your content */}
+      </div>
+    </section>
+  )
+}
+
+/**
+ * Example: Using preset themes
+ */
+export async function ExampleWithPresetTheme() {
+  // This would be in a server component
+  const { getRandomUnsplashImage, SPORTS_THEMES } = await import('@/lib/unsplash')
+  
+  const image = await getRandomUnsplashImage(SPORTS_THEMES.volleyball)
+  
+  return (
+    <StockImage
+      src={image.urls.regular}
+      alt={image.alt_description || 'Volleyball team'}
+      width={800}
+      height={600}
+      className="rounded-lg"
+    />
+  )
+}
+
