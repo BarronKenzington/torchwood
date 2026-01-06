@@ -24,15 +24,28 @@ export function getBlogPosts(): Omit<BlogPost, 'content'>[] {
       const slug = fileName.replace(/\.md$/, '')
       const fullPath = path.join(postsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
-      const { data, excerpt } = matter(fileContents, {
+      const { data, excerpt, content } = matter(fileContents, {
         excerpt: true
       })
+
+      // Prioritize frontmatter excerpt, then extracted excerpt, then generate from content
+      let postExcerpt = data.excerpt || (excerpt as string) || ''
+      
+      // If still no excerpt, generate one from the first paragraph of content
+      if (!postExcerpt && content) {
+        const firstParagraph = content.split('\n\n')[0]?.replace(/^#+\s*/, '').trim()
+        if (firstParagraph) {
+          postExcerpt = firstParagraph.length > 150 
+            ? firstParagraph.substring(0, 150) + '...'
+            : firstParagraph
+        }
+      }
 
       return {
         slug,
         title: data.title,
         date: data.date,
-        excerpt: (excerpt as string) || data.excerpt || '',
+        excerpt: postExcerpt,
       }
     })
 

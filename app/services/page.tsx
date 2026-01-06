@@ -8,6 +8,21 @@ export default function Services() {
 
   const tiers = [
     {
+      id: 'sprint',
+      name: "Club Ops Sprint",
+      hours: "5 hours (one-time)",
+      price: "Free",
+      idealFor: "Clubs wanting to try before committing",
+      deliverables: [
+        "30-min kickoff to identify your #1 bottleneck",
+        "5 hours of deep work in your tech stack",
+        "Wrap-up meeting with solution handoff",
+        "30-day roadmap for your club"
+      ],
+      popular: false,
+      isSprint: true
+    },
+    {
       id: 'starter',
       name: "Starter Ops Assistant",
       hours: "10 hours/month",
@@ -127,6 +142,8 @@ export default function Services() {
                 <div className="text-right">
                   {activeTier.price === "Contact for Pricing" ? (
                     <span className="text-2xl font-bold text-torchwood-accent-orange">Contact for Pricing</span>
+                  ) : activeTier.price === "Free" ? (
+                    <span className="text-5xl font-bold text-torchwood-accent-orange">Free</span>
                   ) : (
                     <>
                       <span className="text-5xl font-bold text-white">{activeTier.price.split('–')[0]}</span>
@@ -137,28 +154,77 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="border-t border-torchwood-primary-teal/30 pt-6 mb-8">
-              <h3 className="text-xl font-bold mb-4 text-torchwood-primary-teal">What&apos;s Included:</h3>
-              <ul className="space-y-3 text-gray-200">
-                {activeTier.deliverables.map((item, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-torchwood-accent-orange mr-3 text-xl">✓</span>
-                    <span className="text-lg">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {activeTier.isSprint ? (
+              <>
+                <div className="text-center mb-6">
+                  <span className="inline-block bg-blue-50 text-blue-700 font-bold px-4 py-2 rounded-full text-sm border-2 border-blue-200">
+                    LIMITED: 3 SPOTS PER MONTH
+                  </span>
+                </div>
+                <div className="border-t border-torchwood-primary-teal/30 pt-6 mb-8">
+                  <h3 className="text-xl font-bold mb-6 text-torchwood-primary-teal text-center">How It Works:</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-torchwood-dark-teal/50 p-6 rounded-xl border border-torchwood-primary-teal/30 text-center">
+                      <div className="text-4xl mb-3">⏱️</div>
+                      <h4 className="text-lg font-bold mb-2 text-torchwood-accent-orange">The Kickoff</h4>
+                      <p className="text-gray-200 text-sm">
+                        A 30-min deep dive to identify your #1 bottleneck (registration, rosters, or travel).
+                      </p>
+                    </div>
+                    <div className="bg-torchwood-dark-teal/50 p-6 rounded-xl border border-torchwood-primary-teal/30 text-center">
+                      <div className="text-4xl mb-3">⚙️</div>
+                      <h4 className="text-lg font-bold mb-2 text-torchwood-accent-orange">The Deep Work</h4>
+                      <p className="text-gray-200 text-sm">
+                        I spend 5 hours inside your tech stack (PlayMetrics, TeamSnap, etc.) building the solution.
+                      </p>
+                    </div>
+                    <div className="bg-torchwood-dark-teal/50 p-6 rounded-xl border border-torchwood-primary-teal/30 text-center">
+                      <div className="text-4xl mb-3">🗺️</div>
+                      <h4 className="text-lg font-bold mb-2 text-torchwood-accent-orange">The Roadmap</h4>
+                      <p className="text-gray-200 text-sm">
+                        A wrap-up meeting where I hand over the keys and a 30-day plan for your club.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a
+                  href="https://forms.gle/txk6CwuWxdMjbY686"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center font-bold py-4 px-8 rounded-full text-lg transition duration-300 ease-in-out bg-torchwood-accent-orange text-white hover:bg-torchwood-primary-teal hover:scale-105"
+                >
+                  Apply for a Free Ops Sprint
+                </a>
+                <p className="text-gray-400 text-center mt-4 text-sm">
+                  (No credit card required. I only work with clubs where I know I can move the needle.)
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="border-t border-torchwood-primary-teal/30 pt-6 mb-8">
+                  <h3 className="text-xl font-bold mb-4 text-torchwood-primary-teal">What&apos;s Included:</h3>
+                  <ul className="space-y-3 text-gray-200">
+                    {activeTier.deliverables.map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-torchwood-accent-orange mr-3 text-xl">✓</span>
+                        <span className="text-lg">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-            <Link
-              href="/contact"
-              className={`block text-center font-bold py-4 px-8 rounded-full text-lg transition duration-300 ease-in-out ${
-                activeTier.popular
-                  ? 'bg-torchwood-accent-orange text-white hover:bg-torchwood-primary-teal hover:scale-105'
-                  : 'bg-torchwood-primary-teal text-white hover:bg-torchwood-accent-orange hover:scale-105'
-              }`}
-            >
-              Get Started with {activeTier.name}
-            </Link>
+                <Link
+                  href="/contact"
+                  className={`block text-center font-bold py-4 px-8 rounded-full text-lg transition duration-300 ease-in-out ${
+                    activeTier.popular
+                      ? 'bg-torchwood-accent-orange text-white hover:bg-torchwood-primary-teal hover:scale-105'
+                      : 'bg-torchwood-primary-teal text-white hover:bg-torchwood-accent-orange hover:scale-105'
+                  }`}
+                >
+                  Get Started with {activeTier.name}
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
@@ -171,13 +237,7 @@ export default function Services() {
             Book a free consultation to discuss your club&apos;s specific needs. 
             We&apos;ll help you find the perfect fit.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-torchwood-accent-orange text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out hover:bg-torchwood-primary-teal hover:scale-105"
-            >
-              Schedule Free Consultation
-            </Link>
+          <div className="flex justify-center">
             <Link
               href="/contact"
               className="bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out hover:bg-white hover:text-torchwood-dark-teal"

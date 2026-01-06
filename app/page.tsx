@@ -236,16 +236,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Club Ops Sprint Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          {/* Limited Availability Badge */}
+          <div className="text-center mb-6">
+            <span className="inline-block bg-blue-50 text-blue-700 font-bold px-4 py-2 rounded-full text-sm md:text-base border-2 border-blue-200">
+              LIMITED: 3 SPOTS PER MONTH
+            </span>
+          </div>
+
+          {/* Heading & Sub-heading */}
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-torchwood-dark-teal">
+            Reclaim Your Sanity. One Week. One Major Win.
+          </h2>
+          <p className="text-xl text-center mb-16 text-gray-700 max-w-3xl mx-auto">
+            Stop drowning in the admin grind. Let me handle 5 hours of your toughest operational tasks this week—no long-term commitment required.
+          </p>
+
+          {/* Three-Column Feature Grid */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+            <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all text-center">
+              <div className="text-5xl mb-4">⏱️</div>
+              <h3 className="text-2xl font-bold mb-4 text-torchwood-dark-teal">The Kickoff</h3>
+              <p className="text-gray-700 text-lg">
+                A 30-min deep dive to identify your #1 bottleneck (registration, rosters, or travel).
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all text-center">
+              <div className="text-5xl mb-4">⚙️</div>
+              <h3 className="text-2xl font-bold mb-4 text-torchwood-dark-teal">The Deep Work</h3>
+              <p className="text-gray-700 text-lg">
+                I spend 5 hours inside your tech stack (PlayMetrics, TeamSnap, etc.) building the solution.
+              </p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all text-center">
+              <div className="text-5xl mb-4">🗺️</div>
+              <h3 className="text-2xl font-bold mb-4 text-torchwood-dark-teal">The Roadmap</h3>
+              <p className="text-gray-700 text-lg">
+                A wrap-up meeting where I hand over the keys and a 30-day plan for your club.
+              </p>
+            </div>
+          </div>
+
+          {/* Call to Action Button */}
+          <div className="text-center">
+            <a
+              href="https://forms.gle/txk6CwuWxdMjbY686"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-torchwood-accent-orange text-white font-bold py-5 px-12 rounded-full text-xl transition duration-300 ease-in-out hover:bg-torchwood-primary-teal hover:scale-105 shadow-lg"
+            >
+              Apply for a Free Ops Sprint
+            </a>
+            <p className="text-gray-600 mt-6 text-sm md:text-base">
+              (No credit card required. I only work with clubs where I know I can move the needle.)
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-torchwood-accent-orange via-torchwood-primary-teal to-torchwood-secondary-teal text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             Ready to Get Your Time, Sanity, and Structure Back?
           </h2>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-100">
-            Stop drowning in admin. Start focusing on growth. Let&apos;s talk about how Torchwood Ops can transform your club&apos;s operations.
+          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-gray-100">
+            Stop drowning in admin. Start focusing on growth.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-200">
+            Ready to start right away? Or want to try a low-commitment Ops Sprint first?
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
             <Link 
               href="/contact" 
               className="bg-white text-torchwood-dark-teal font-bold py-4 px-10 rounded-full text-lg transition duration-300 ease-in-out hover:bg-gray-100 hover:scale-105 shadow-lg"
@@ -258,6 +321,19 @@ export default function Home() {
             >
               View Our Services
             </Link>
+          </div>
+          <div className="pt-6 border-t border-white/20">
+            <p className="text-gray-200 mb-4 text-lg">
+              Or try a low-commitment <span className="font-semibold">Ops Sprint</span> first:
+            </p>
+            <a
+              href="https://forms.gle/txk6CwuWxdMjbY686"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white/10 border-2 border-white text-white font-bold py-3 px-8 rounded-full text-base transition duration-300 ease-in-out hover:bg-white hover:text-torchwood-dark-teal shadow-lg"
+            >
+              Apply for Ops Sprint
+            </a>
           </div>
           <p className="text-gray-200 mt-8 text-sm">
             No commitment required. Just a conversation about your needs.
