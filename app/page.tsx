@@ -251,7 +251,7 @@ export default function Home() {
             Reclaim Your Sanity. One Week. One Major Win.
           </h2>
           <p className="text-xl text-center mb-16 text-gray-700 max-w-3xl mx-auto">
-            Stop drowning in the admin grind. Let me handle 5 hours of your toughest operational tasks this week—no long-term commitment required.
+            Stop drowning in the admin grind. Let me handle 5 hours of your toughest operational tasks this week - no long-term commitment required.
           </p>
 
           {/* Three-Column Feature Grid */}

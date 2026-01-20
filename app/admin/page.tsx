@@ -95,6 +95,12 @@ export default function AdminDashboard() {
           <h1 className="text-4xl md:text-5xl font-bold text-white">Admin Dashboard</h1>
           <div className="flex gap-4">
             <Link
+              href="/dashboard"
+              className="bg-torchwood-secondary-teal text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out hover:bg-torchwood-primary-teal hover:scale-105"
+            >
+              Monitoring Dashboard
+            </Link>
+            <Link
               href="/admin/blog/new"
               className="bg-torchwood-accent-orange text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out hover:bg-torchwood-primary-teal hover:scale-105"
             >

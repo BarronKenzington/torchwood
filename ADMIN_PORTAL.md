@@ -73,3 +73,11 @@
 - Consider adding rate limiting for production
 - For production, consider upgrading to NextAuth.js or similar
 
+## ChangeDetection Environment Variables
+
+Add these to `.env.local` when using the monitoring dashboard:
+
+```
+CHANGEDETECTION_BASE_URL=http://localhost:5000/api/v1
+CHANGEDETECTION_API_KEY=your-api-key-here
+```
